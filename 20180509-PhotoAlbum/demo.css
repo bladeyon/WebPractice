@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+.wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.wrapper ul{
+    width: 100%;
+    height: 100%;
+}
+.wrapper ul li{
+    display: inline-block;
+    width: 25%;
+    overflow: hidden;
+    margin: auto 0;
+}
+
+.wrapper li img{
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .show-dist{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+
+.wrapper .show-dist img{
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}

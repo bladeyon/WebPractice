@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.wrapper {
+    width: 400px;
+    margin: 50px auto;
+    border: 1px solid #777;
+    border-radius: 5px;
+}
+
+.wrapper .search {
+    margin: 5px;
+}
+
+.wrapper .search input {
+    width: 180px;
+    height: 25px;
+    outline: none;
+    border: 2px solid #666;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 0 5px;
+}
+
+.wrapper .search ul {
+    float: right;
+}
+
+.wrapper .search ul li {
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: orange;
+    border: 2px solid #666;
+    border-radius: 5px;
+    float: left;
+    margin: 0 5px;
+    padding: 0 5px;
+}
+
+.wrapper .search ul li:hover {
+    border-color: orange;
+}
+
+.wrapper .search ul li.active {
+    border-color: orange;
+    background-color: orange;
+    color:#fff;
+}
+
+.wrapper .list>ul>li {
+    margin: 10px 5px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #eee;
+}
+
+.wrapper .list>ul>li:hover {
+    background: #aaa;
+}
+
+.wrapper .list>ul>li>img {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #333;
+    border-radius: 3px;
+    margin: 5px;
+    vertical-align: bottom;
+}
+
+.wrapper .list>ul>li>span {
+    margin: 0 10px;
+    line-height: 45px;
+    display: inline-block;
+    width: 25%;
+}
+
+.wrapper .list>ul>li>span:last-child {
+    width: 50%;
+}
