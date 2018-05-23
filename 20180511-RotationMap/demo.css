@@ -11,12 +11,33 @@
     border: 2px solid #000;
     position: relative;
 }
+.wrapper .show-img li {
+    /* float: left; */
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    display: none;
+}
 
 .wrapper .order{
-    width: 20px;
-    padding: 5px;
+    width: 80px;
+    padding: 0 5px;
     position: absolute;
-    bottom: 0px;
-    text-align: center;
-    border:1px solid #ccc;
+    left: 50%;
+    bottom: 5px;
+    margin-left: -45px;
+    border-radius: 10px;
+    background-color: rgb(109, 193, 111);
+}
+
+.order li{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #000;
+    margin: 1px 3px;;
 }
