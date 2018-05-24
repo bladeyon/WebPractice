@@ -24,9 +24,9 @@
     },
 
     createElements: function (data) {
-        var $img = $('<div class="show-img"><ul></ul></div>'),
-            $order = $('<div class="order"><ul></ul></div>');
-        var that=this;
+        var $img = $('<ul class="show-img"></ul>'),
+            $order = $('<ul class="order"></ul>');
+        var that = this;
         that.len = data.length;
         // 设置包裹ul的div的尺寸
         $img.find('.show-img').css({
@@ -35,36 +35,36 @@
         });
 
         data.forEach(function (item, index) {
-            $img.find('ul').append("<li><img src='" + item.url + "'/></li>");
+            $img.append("<li><img src='" + item.url + "'/></li>");
             if (index < that.len - 1) {
-                $order.find('ul').append("<li></li>");
+                $order.append("<li></li>");
             }
 
         });
 
         $(".wrapper").append($img, $order).find('.order li:first-child').addClass('active');
         if (that.len > 1) {
-            $('.wrapper').append('<div class="page">\
-                                    <span class="left"></span>\
-                                    <span class="right"></span>\
-                                </div>');
+            $('.wrapper').append('<ul class="page">\
+                                    <li class="left"></li>\
+                                    <li class="right"></li>\
+                                </ul>');
         }
     },
     bindEvent: function () {
         var that = this;
-        $('.wrapper .page').on('click', 'span', function (e) {
-            if ($(this).attr('class') == 'left') {
+        $('.wrapper').on('click', 'li', function (e) {
+            var tarClsName = $(this).attr('class');
+            if (tarClsName == 'left') {
                 that.curIndex = that.curIndex > 0 ? --that.curIndex : that.len - 1;
-            } else {
+            } else if (tarClsName == 'right') {
                 that.curIndex = that.curIndex < that.len - 1 ? ++that.curIndex : 0;
+            } else {
+                that.curIndex = $(this).index();
             }
+            that.showImg(that.curIndex);
+
         });
 
-        $('.wrapper .order').on('click', 'li', function (e) {
-            that.curIndex = $(this).index();
-        });
-
-        that.showImg(that.curIndex);
     },
     showImg: function (index) {
         $('.wrapper .show-img').css('left', -index * 520 + 'px');

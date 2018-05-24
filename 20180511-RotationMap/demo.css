@@ -58,10 +58,11 @@
     margin-top: -10px;
 }
 
-.page span{
+.page li{
     display: inline-block;
     width: 30px;
     height: 24px;
+    background-color: #bbb;
     background-image: url(./img/taobao.png) ;
     overflow: hidden;
 }
@@ -73,6 +74,10 @@
 
 .page .right{
     float: right;
-    background-position: 210px 24px;
+    background-position: 205px 317px;;
     margin:5px 10px;
+}
+
+.order li:hover,.page span:hover{
+    cursor: pointer;
 }
