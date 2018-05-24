@@ -13,12 +13,17 @@
     overflow: hidden;
 }
 
+.wrapper .show-img {
+    width: 520px;
+    height: 280px;
+    position: absolute;
+    left: 0;
+}
+
 .wrapper .show-img li {
     width: 520px;
     height: 280px;
     display: inline-block;
-    /* position: absolute;
-    left: 0; */
 }
 
 .show-img li img{
@@ -33,7 +38,7 @@
     bottom: 5px;
     margin-left: -45px;
     border-radius: 10px;
-    background-color: rgb(109, 193, 111);
+    background-color: rgba(109, 193, 111,0.5);
 }
 
 .order li{
@@ -55,29 +60,29 @@
     /* border: 1px solid black; */
     position: absolute;
     top: 50%;
-    margin-top: -10px;
+    margin-top: -12px;
 }
 
 .page li{
     display: inline-block;
     width: 30px;
     height: 24px;
-    background-color: #bbb;
+    background-color: #bbb8;
     background-image: url(./img/taobao.png) ;
     overflow: hidden;
 }
 .page .left{
     float: left;
-    background-position: 210px 0px;
-    margin:5px 10px;
+    background-position: 210px -95px;
+    border-radius: 0 50% 50% 0;
 }
 
 .page .right{
     float: right;
-    background-position: 205px 317px;;
-    margin:5px 10px;
+    background-position: 210px 226px;
+    border-radius: 50% 0 0 50%;
 }
 
-.order li:hover,.page span:hover{
+.order li:hover,.page li:hover{
     cursor: pointer;
 }

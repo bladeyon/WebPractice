@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+html,
+body,
+.wrapper {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: relative;
+}
+
+.slider-list {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-list .slider {
+    width: 100%;
+    height: 100%;
+    padding: 200px;
+    box-sizing: border-box;
+    display: none;
+}
+
+.slider-list .slider:first-child {
+    background: url('./images/bg-1.jpg') no-repeat;
+    background-size: cover;
+}
+
+.slider-list .slider.active {
+    display: block;
+}
+
+.slider-list .slider .slider-title {
+    width:40%;
+    float: left;
+    /* margin-left: 20%; */
+    /* margin-top: 15%; */
+    /* font-size: 18px; */
+    /* border: 1px solid #fff; */
+}
+
+.slider-list .slider .slider-img img {
+    width:40%;
+    float: right;
+    /* margin-right: 20%; */
+    /* margin-top: 15%; */
+    /* border: 1px solid #fff; */
+}
+
+.slider-list .slider>div::after {
+    clear: both;
+    content: "";
+}
+
+.slider-list .slider:nth-child(n+2) img{
+    width: 0%;
+}
+
+
+.btn {
+    width: 100%;
+    height: 40px;
+    /* border: 1px solid #fff; */
+    position: absolute;
+    top: 50%;
+    margin-top:-20px;
+}
+
+.btn>span {
+    display: inline-block;
+    margin: 0 20px;
+    width: 30px;
+    height: 40px;
+}
+
+.btn .left-btn {
+    float: left;
+    background: url('./images/left-btn.png') no-repeat;
+}
+
+.btn .right-btn {
+    float: right;
+    background: url('./images/right-btn.png') no-repeat;
+}
+
+.btn span::after {
+    clear: both;
+    content: "";
+}
+
+.btm-li {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+}
+
+.btm-li ul li {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.btm-li ul li.active {
+    background-color: red;
+}

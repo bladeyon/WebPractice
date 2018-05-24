@@ -13,29 +13,27 @@
     }, {
         url: './img/1.jpg'
     }],
-    curIndex: 1,
+    curIndex: 0,
+    timer: undefined,
+    lock: true,
     // len: this.imgInfoArr.length,
-
-
-
     init: function () {
         this.createElements(this.imgInfoArr);
         this.bindEvent();
+        this.autoPlay();
     },
-
     createElements: function (data) {
-        var $img = $('<ul class="show-img"></ul>'),
+        var $img = $('<div class="show-img"><ul></ul></div>'),
             $order = $('<ul class="order"></ul>');
         var that = this;
         that.len = data.length;
         // 设置包裹ul的div的尺寸
-        $img.find('.show-img').css({
-            'width': 520 * that.len + 'px',
-            height: '280px'
+        $img.css({
+            'width': 520 * that.len + 'px'
         });
 
         data.forEach(function (item, index) {
-            $img.append("<li><img src='" + item.url + "'/></li>");
+            $img.find('ul').append("<li><img src='" + item.url + "'/></li>");
             if (index < that.len - 1) {
                 $order.append("<li></li>");
             }
@@ -53,23 +51,54 @@
     bindEvent: function () {
         var that = this;
         $('.wrapper').on('click', 'li', function (e) {
-            var tarClsName = $(this).attr('class');
-            if (tarClsName == 'left') {
-                that.curIndex = that.curIndex > 0 ? --that.curIndex : that.len - 1;
-            } else if (tarClsName == 'right') {
-                that.curIndex = that.curIndex < that.len - 1 ? ++that.curIndex : 0;
-            } else {
-                that.curIndex = $(this).index();
+            // console.log(that.lock)
+            if (that.lock) {
+                that.lock = false;
+                clearTimeout(timer);
+                var tarClsName = $(this).attr('class');
+                if (tarClsName == 'left') {
+                    if (that.curIndex == 0) {
+                            $('.show-img').css('left', -((that.len-1) * 520) + 'px');
+                    }
+                    that.curIndex = that.curIndex > 0 ? --that.curIndex : that.len - 2;
+                } else if (tarClsName == 'right') {
+                    if (that.curIndex == that.len - 2) {
+                        $('.show-img').animate({
+                            'left': -(that.len - 1) * 520 + 'px'
+                        }, 400, 'linear', function () {
+                            $(this).css('left', 0);
+                        });
+                    }
+                    that.curIndex = that.curIndex < that.len - 2 ? ++that.curIndex : 0;
+                } else {
+                    that.curIndex = $(this).index();
+                }
+                that.showImg(that.curIndex);
             }
-            that.showImg(that.curIndex);
-
         });
 
     },
     showImg: function (index) {
-        $('.wrapper .show-img').css('left', -index * 520 + 'px');
-        $('.wrapper .order li').find('.active').removeClass('active').eq(index).addClass('active');
-    }
+        var that = this;
+        $('.wrapper .show-img').animate({
+            'left': -index * 520 + 'px'
+        }, 500, 'linear', function () {
+            // console.log(that.lock)
+            that.lock = true;
+        });
+        this.changeLiStyle(index);
 
+        this.autoPlay();
+    },
+    changeLiStyle: function (index) {
+        $('.wrapper .order li.active').removeClass('active');
+        $('.wrapper .order li').eq(index).addClass('active');
+    },
+    autoPlay: function () {
+        timer = setTimeout(() => {
+            $('.wrapper .page .right').click();
+        }, 2000);
+
+    }
 
 }).init();
