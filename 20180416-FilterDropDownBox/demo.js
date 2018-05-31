@@ -12,7 +12,7 @@ var userList=[
 var mInp = document.getElementById('myInput'),
     mUl = document.getElementById('myUl');
 var objCond = {
-    txt:'',
+    txt: '',
     gender: mUl.getElementsByClassName('active')[0].getAttribute('sex')
 };
 
@@ -20,24 +20,24 @@ var objCond = {
 mInp.addEventListener('input', function (e) {
     console.log(this.value);
     objCond.txt = this.value;
-    renderList(userList,objCond);
+    renderList(userList, objCond);
 }, false);
 
 mUl.addEventListener('click', function (e) {
-    var li=this.getElementsByTagName('li');
-    for(var i=0,len=li.length;i<len;i++){
-        li[i].className="";
+    var li = this.getElementsByTagName('li');
+    for (var i = 0, len = li.length; i < len; i++) {
+        li[i].className = "";
     }
-    e.target.className='active';
+    e.target.className = 'active';
     objCond.gender = e.target.getAttribute('sex');
-    renderList(userList,objCond);
+    renderList(userList, objCond);
 }, false);
 
 // 渲染
-function renderList(arr,obj) {
+function renderList(arr, obj) {
     var mUser = document.getElementById('user'),
         liStr = "";
-    
+
     var newArr = filterCond(arr, obj);
     // console.log(newArr);
     newArr.forEach(function (elem) {
@@ -47,32 +47,32 @@ function renderList(arr,obj) {
                 <span>' + elem.desc + '</span>\
             </li>';
     });
-    mUser.innerHTML="";
-    mUser.innerHTML=liStr;
-    
+    mUser.innerHTML = "";
+    mUser.innerHTML = liStr;
+
 }
-renderList(userList,objCond);
+renderList(userList, objCond);
 
 // 筛选
 function filterCond(arr, cond) {
     // console.log(cond);
-    var txtArr=[],genArr=[];
-    if(cond.txt){
-        txtArr=arr.filter(function(item){
-                if(item.name.indexOf(cond.txt)!==-1||item.desc.indexOf(cond.txt)!==-1){
-                    return true;
-                }
-            });
-    }else{
-        txtArr=arr.concat();
+    var txtArr = [], genArr = [];
+    if (cond.txt) {
+        txtArr = arr.filter(function (item) {
+            if (item.name.indexOf(cond.txt) !== -1 || item.desc.indexOf(cond.txt) !== -1) {
+                return true;
+            }
+        });
+    } else {
+        txtArr = arr.concat();
     }
     // console.log(txtArr)
-    if(cond.gender!=="all"){
-        genArr=txtArr.filter(function(item){
-            return item.gender==cond.gender;
+    if (cond.gender !== "all") {
+        genArr = txtArr.filter(function (item) {
+            return item.gender == cond.gender;
         });
-    }else{
-        genArr=txtArr.concat();
+    } else {
+        genArr = txtArr.concat();
     }
     return genArr;
 
