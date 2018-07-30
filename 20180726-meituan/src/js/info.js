@@ -45,11 +45,10 @@ function renderDetail(dataInfo) {
     clearfix.find('.list-details .tell #icon-2 strong').text(dataInfo.info['sale']);
     clearfix.find('.seller .address >h4').text(dataInfo.info['receive']);
     clearfix.find('.seller .address >p').text(dataInfo.info['adderess']);
-    clearfix.find('.seller dl dd >span').text("电话：026-" + dataInfo.info['phoneNumber'] ? dataInfo.info['phoneNumber'] : 12345);
+    clearfix.find('.seller dl dd >span').text("电话：" + (dataInfo.info['phoneNumber'] ? dataInfo.info['phoneNumber'] : 12345));
     var commentArr = [];
     dataInfo.info.comment.forEach(function (ele) {
-        var htm = "";
-        htm += '<li class="item-evaluate">\
+        commentArr.push('<li class="item-evaluate">\
         <div class="foot-user clearfix">\
             <img src="' + ele.img + '" alt="">\
             <div class="user-strart">\
@@ -59,21 +58,21 @@ function renderDetail(dataInfo) {
         </div>\
         <div class="evaluate-content">\
             <p>' + ele.content + '</p>\
-            <p>';
+            <p>');
         // 多张图片
         // ele.img.forEach(function(item){
-        //     htm+='<span><img src="'+item+'" alt=""></span>'
+        //     commentArr.push('<span><img src="' + ele.img + '" alt=""></span>');
         // });
 
-        htm += '<span><img src="' + ele.img + '" alt=""></span>'
+        commentArr.push('<span><img src="' + ele.img + '" alt=""></span>');
 
-        htm += '</p>\
+        commentArr.push('</p>\
         </div>\
         <div class="locale">\
             <a href="###">西树泡芙（地王广场店）</a>\
         </div>\
-    </li>';
-        commentArr.push(htm);
+    </li>');
+        
     })
     clearfix.find('.food-evaluate ul').append(commentArr.join(''));
 }
