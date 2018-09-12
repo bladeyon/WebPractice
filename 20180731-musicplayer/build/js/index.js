@@ -1,0 +1,1 @@
+var $=window.Zepto;function getData(t){$.ajax({type:"GET",url:t,success:function(t){},error:function(t){}})}getData("../mock/data1.json");

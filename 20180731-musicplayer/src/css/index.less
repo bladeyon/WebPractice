@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none; // border: 1px solid black;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    font-size: 12px; // border: 1px solid black; 
+    box-sizing: border-box;
+    padding-top: 80px;
+    .picture {
+        margin: 0px auto;
+        width: 50%;
+        padding-top: 50%;
+        height: 0;
+        position: relative;
+        .img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .song {
+        text-align: center;
+        padding: 40px;
+        .song-title {
+            font-size: 16px;
+            margin: 10px auto;
+        }
+        .songer {
+            font-size: 14px;
+            margin: 10px auto;
+        }
+    }
+    .process {
+        display: flex;
+        align-items: center;
+        padding: 40px 5px;
+        .ctime,
+        .etime {
+            width: 60px;
+            color: #333;
+            text-align: center;
+        }
+        .procbar {
+            flex: 1;
+            overflow: hidden;
+            .proc-bottom {
+                border: 2px solid #ccc;
+                background-color: #ccc;
+                opacity: 0.5;
+                margin: 3px;
+            }
+            .proc-top {
+                border: 2px solid #666;
+                background-color: #666;
+                transform: translateX(-100%);
+                margin-top: -8px;
+                margin-bottom: 2px;
+                .slider-point {
+                    width: 5px;
+                    height: 5px;
+                    background: #000;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    position: absolute;
+                    right: -10px;
+                    top: -3px;
+                }
+            }
+        }
+    }
+    .ctrl {
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        background-color: #666;
+        bottom: 0;
+        ul {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            li {
+                display: inline-block;
+                flex: 1;
+                height: 100%;
+                background-position: center;
+                background-size: 40%;
+                background-repeat: no-repeat;
+                // border: 1px solid #fff;
+            }
+            .favour {
+                background-image: url('../images/icon-like.png');
+            }
+            .prev {
+                background-image: url('../images/icon-prev.png');
+            }
+            .play {
+                background-image: url('../images/icon-play.png');
+            }
+            .next {
+                background-image: url('../images/icon-next.png');
+            }
+            .list {
+                background-image: url('../images/icon-list.png');
+            }
+        }
+    }
+}
