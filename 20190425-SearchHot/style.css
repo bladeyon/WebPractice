@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.wrapper {
+    width: 300px;
+    padding: 5px;
+    margin: 10px auto 5px;
+    border: 1px solid #ccc;
+}
+
+.wrapper .section {
+    padding: 5px 0;
+
+}
+
+.wrapper .section .header {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.wrapper .section .change {
+    float: right;
+    color: #08f;
+    cursor: pointer;
+}
+
+.wrapper .hot li {
+    padding: 3px 0;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+.wrapper .hot li.tpl{
+    display: none;
+}
+
+.wrapper .hot li .order {
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.wrapper .hot li .rangeR {
+    background: rgb(255, 0, 0);
+}
+
+.wrapper .hot li .rangeO {
+    background: rgb(255, 123, 0);
+}
+.wrapper .hot li .rangeY {
+    background: rgb(255, 251, 0);
+}
+
+.wrapper .hot li .rangeB {
+    background: rgb(0, 0, 255);
+}
+
+.wrapper .hot li .count {
+    float: right;
+}
+
+.wrapper .hot li .count::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-image: url(./img/icons.png);
+}
+
+.wrapper .hot li .count.up::after {
+    background-position: -720px 353px;
+    color: red;
+}
+
+.wrapper .hot li .count.down::after {
+    background-position: -744px 353px;
+    color: green;
+
+}
+
+.clearFlt::after {
+    content: "";
+    clear: both;
+}
