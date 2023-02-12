@@ -1,0 +1,106 @@
+body {
+    height: 1000px;
+    padding-bottom: 70px;
+    list-style: none;
+}
+
+/* 
+@media (max-width:1199px){
+    .container{
+        width:1080px;
+    }
+    
+}
+
+@media (max-width:1100px){
+    .container{
+        width:1000px;
+    }
+    
+    .navbar-right{
+        margin-right: 55px;
+    }
+
+    .navbar-header{
+        margin-left: -20px;
+    }
+} */
+
+/* @media (max-width:1000px){
+    .navbar-collapse .navbar-right{
+        display: none;
+    }
+} */
+
+.jumbotron {
+    text-align: center;
+    background: linear-gradient(45deg, rgb(21, 0, 27), rgb(139, 0, 199));
+    margin-bottom: 0;
+}
+
+.jumbotron:after {
+    position: absolute;
+    top: 0;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    background: url('../img/masthead-pattern.png');
+    background-repeat: repeat;
+    background-origin: padding-box;
+    content: "";
+    opacity: 0.5;
+}
+
+.jumbotron .container {
+    padding: 90px 0 110px;
+    color: #fff;
+}
+
+.link {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    background: #eee;
+}
+
+.link div {
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+.link div a:hover {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+.proj {
+    text-align: center;
+    padding: 50px;
+}
+
+.page-footer {
+    padding: 50px;
+    border-top: 1px solid #ccc;
+    list-style: none;
+}
+
+.page-footer .container .other>ul>li {
+    display: inline-block;
+    margin: 10px auto;
+}
+
+.page-footer .container .other>ul>li li {
+    margin: 5px;
+}
+
+.page-footer .ba{
+    text-align: center;
+    /* padding: 20px; */
+    border-top:1px solid #ccc;
+}
+.page-footer .ba p{
+    display: inline-block;
+    margin: 10px 5px;
+    color:#666;
+}
